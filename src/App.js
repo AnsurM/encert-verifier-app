@@ -9,6 +9,27 @@ const axios = require('axios');
 const Search = Input.Search;
 
 class App extends Component {
+
+  state = {
+    certificates: null
+  };
+
+  onSearchCertificate = (value) => {
+    console.log("Search input is: ", value);
+
+    axios.get(`https://encert-server.herokuapp.com/issuer/certificate/${value}`)
+    .then(function (response) {
+      console.log(response);
+      if(response.data.data.result)
+      {
+        let myCerts = response.data.data.result;
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   render() {
     return (
       <div className="App">
