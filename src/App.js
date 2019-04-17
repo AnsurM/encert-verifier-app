@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
+import { Input } from 'antd';
 import logo from './logo.svg';
+import 'antd/dist/antd.css';
 import './App.css';
+
+
+const axios = require('axios');
+const Search = Input.Search;
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <div>
+            <br /><br />
+            <Search
+              placeholder="input search text"
+              size="large"
+              onSearch={value => this.onSearchCertificate(value)}
+              enterButton
+            />
+          </div>,
+        </div>
     );
   }
 }
